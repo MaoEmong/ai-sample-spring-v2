@@ -1,0 +1,31 @@
+{{> layout/header}}
+
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-primary mb-4">Spring Boot Board</h1>
+        <p class="col-md-8 fs-4 text-secondary mb-5">
+            이 프로젝트는 Spring Boot 3.3.4와 Java 21을 사용하여 구현된 게시판 서비스입니다.
+            Mustache 템플릿과 디자인 토큰을 활용하여 세련된 UI를 제공합니다.
+        </p>
+        <a href="/board/list" class="btn btn-primary btn-lg">게시글 보기</a>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch mb-5">
+    <div class="col-md-6 mb-4">
+        <div class="h-100 p-5 text-white bg-dark rounded-3 shadow-sm">
+            <h2>회원 서비스</h2>
+            <p>회원가입 후 자신만의 게시글과 댓글을 남겨보세요. BCrypt 암호화와 세션 인증을 통해 안전하게 정보를 보호합니다.</p>
+            <a href="/join-form" class="btn btn-outline-light">시작하기</a>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="h-100 p-5 bg-white border rounded-3 shadow-sm">
+            <h2>기술 스택</h2>
+            <p>JPA, H2 Database, Validation, Lombok 등 최신 스프링 부트 기술을 적용하여 견고한 백엔드를 구축했습니다.</p>
+            <a href="https://spring.io" class="btn btn-outline-primary" target="_blank">Spring 알아보기</a>
+        </div>
+    </div>
+</div>
+
+{{> layout/footer}}

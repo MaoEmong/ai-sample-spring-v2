@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v jq)",
+      "Bash(command -v python3)",
+      "Bash(command -v python)",
+      "Bash(bash .ai/hooks/log-activity.sh)",
+      "Bash(echo '*' | bash .ai/hooks/log-activity.sh)",
+      "Bash(echo $SHELL)",
+      "Bash(bash --version)",
+      "Bash(command -v sh)",
+      "Bash(echo $TERM)",
+      "Bash(bash \"c:/workspace/sample_lab/demo/.ai/hooks/log-activity.sh\")",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(sh .ai/hooks/log-activity.sh)"
+    ]
+  }
+}
