@@ -16,23 +16,23 @@
   - [x] `application.properties` 설정 (H2 Console, Hibernate Logging)
   - [x] 초기 데이터 구성을 위한 `data.sql` 작성
 - [x] **T-1.5 공통 화면 레이아웃 구성**
-  - [x] `header.mustache`, `footer.mustache` 파일 작성 및 공통화 적용
+  - [x] `frontend-design` 스킬을 활용하여 `header.mustache`, `footer.mustache` 파일 작성 및 공통화 적용
   - [x] Bootstrap 등을 활용한 기본 레이아웃 템플릿 구조화
 
 ## Phase 2: 회원 인증 시스템 (Membership System)
 
 - [ ] **T-2.1 회원가입 기능 및 화면 구현**
-  - [ ] 회원가입 폼 (`join-form.mustache`) 구현
+  - [ ] `frontend-design` 스킬을 활용한 회원가입 폼 (`join-form.mustache`) 구현
   - [ ] `UserRequest.JoinDTO` 구현 및 유효성 검사 적용
   - [ ] 아이디 중복 체크 API 구현 및 서비스 로직 작성
   - [ ] 비밀번호 암호화 저장 처리 (BCrypt 적용 권장)
 - [ ] **T-2.2 로그인/로그아웃 기능 및 화면 구현**
-  - [ ] 로그인 폼 (`login-form.mustache`) 구현
+  - [ ] `frontend-design` 스킬을 활용한 로그인 폼 (`login-form.mustache`) 구현
   - [ ] `UserRequest.LoginDTO` 구현
   - [ ] 세션(`HttpSession`)을 이용한 인증 정보 관리
   - [ ] 로그인 성공/실패 시나리오 대응 및 리다이렉션 처리
 - [ ] **T-2.3 회원 탈퇴 및 마이페이지 화면 구현**
-  - [ ] 회원 정보 수정 화면 (`user-update-form.mustache`) 구현
+  - [ ] `frontend-design` 스킬을 활용한 회원 정보 수정 화면 (`update-form.mustache`) 구현
   - [ ] 회원 탈퇴 API 구현
   - [ ] 탈퇴 시 해당 사용자가 작성한 게시글 및 댓글 일괄 처리 (Soft delete 또는 Cascade delete 전략 결정)
 - [ ] **T-2.4 권한 관리 및 보안**
@@ -42,13 +42,13 @@
 ## Phase 3: 게시글 관리 시스템 (Core Blog Features)
 
 - [ ] **T-3.1 게시글 CRUD 기능 및 화면 구현**
-  - [ ] 게시글 목록 화면 (`board-list.mustache`), 상세 화면 (`board-detail.mustache`), 작성 화면 (`board-save-form.mustache`), 수정 화면 (`board-update-form.mustache`) 구현
+  - [ ] `frontend-design` 스킬을 활용한 게시글 목록 화면 (`list.mustache`), 상세 화면 (`detail.mustache`), 작성 화면 (`save-form.mustache`), 수정 화면 (`update-form.mustache`) 구현
   - [ ] 게시글 목록 조회 (`BoardRepository.findAll`)
   - [ ] 게시글 상세 보기 (작성자 정보 및 댓글 포함)
   - [ ] 게시글 작성/수정/삭제 API 및 서비스 로직
 - [ ] **T-3.2 페이징 처리 (Pageable) 적용**
   - [ ] 목록 조회 시 `Pageable` 파라미터 적용
-  - [ ] 페이징 내비게이션 UI 구현
+  - [ ] `frontend-design` 스킬을 활용하여 페이징 내비게이션 UI 구현
 - [ ] **T-3.3 게시글 검색 기능 구현**
   - [ ] 제목 또는 내용 키워드 검색 기능 (`Containing` 쿼리 메서드 활용)
   - [ ] 검색 결과 페이징 연동 및 검색 폼 UI 구현
@@ -58,7 +58,7 @@
 ## Phase 4: 댓글 및 상호작용 (Interaction Features)
 
 - [ ] **T-4.1 댓글 작성 기능 및 화면 연동**
-  - [ ] 댓글 입력 폼 및 댓글 목록 UI (`board-detail.mustache` 내) 구현
+  - [ ] `frontend-design` 스킬을 활용한 댓글 입력 폼 및 댓글 목록 UI (`detail.mustache` 내) 구현
   - [ ] `ReplyRequest.SaveDTO` 구현
   - [ ] AJAX 또는 Form 방식을 이용한 댓글 등록 로직
 - [ ] **T-4.2 댓글 삭제 구현**

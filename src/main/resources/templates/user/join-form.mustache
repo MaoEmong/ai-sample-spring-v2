@@ -1,0 +1,95 @@
+{{> layout/header}}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4>회원가입</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/join" method="post" onsubmit="return validateForm()">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">아이디</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="아이디를 입력하세요" required>
+                                <button type="button" class="btn btn-outline-primary" onclick="checkUsername()">중복체크</button>
+                            </div>
+                            <div id="username-msg" class="form-text mt-1"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">비밀번호</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">이메일</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button id="btn-submit" type="submit" class="btn btn-primary" disabled>가입하기</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let isUsernameChecked = false;
+
+    async function checkUsername() {
+        const username = document.querySelector("#username").value;
+        const msg = document.querySelector("#username-msg");
+        const btnSubmit = document.querySelector("#btn-submit");
+
+        if (!username) {
+            msg.innerText = "아이디를 입력해주세요.";
+            msg.classList.add("text-danger");
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/user/username-same-check?username=${username}`);
+            const result = await response.json();
+
+            if (result.body === true) {
+                msg.innerText = "이미 사용 중인 아이디입니다.";
+                msg.classList.remove("text-success");
+                msg.classList.add("text-danger");
+                isUsernameChecked = false;
+                btnSubmit.disabled = true;
+            } else {
+                msg.innerText = "사용 가능한 아이디입니다.";
+                msg.classList.remove("text-danger");
+                msg.classList.add("text-success");
+                isUsernameChecked = true;
+                btnSubmit.disabled = false;
+            }
+        } catch (error) {
+            console.error("Error checking username:", error);
+            msg.innerText = "중복 체크 중 오류가 발생했습니다.";
+            msg.classList.add("text-danger");
+        }
+    }
+
+    function validateForm() {
+        if (!isUsernameChecked) {
+            alert("아이디 중복 체크를 완료해주세요.");
+            return false;
+        }
+        return true;
+    }
+
+    // 아이디 변경 시 다시 중복체크 필요
+    document.querySelector("#username").addEventListener("input", function() {
+        isUsernameChecked = false;
+        document.querySelector("#btn-submit").disabled = true;
+        document.querySelector("#username-msg").innerText = "";
+    });
+</script>
+
+{{> layout/footer}}
