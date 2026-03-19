@@ -33,4 +33,48 @@ public class UserController {
         return "user/login-form";
     }
 
+    @PostMapping("/login")
+    public String login(UserRequest.Login loginDTO) {
+        User sessionUser = userService.login(loginDTO);
+        session.setAttribute("sessionUser", sessionUser);
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        session.invalidate();
+        return "redirect:/";
+    }
+
+    @GetMapping("/user/update-form")
+    public String updateForm() {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/login-form";
+        }
+        return "user/update-form";
+    }
+
+    @PostMapping("/user/update")
+    public String update(@Valid UserRequest.Update updateDTO, BindingResult bindingResult) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/login-form";
+        }
+        User updatedUser = userService.회원수정(sessionUser.getId(), updateDTO);
+        session.setAttribute("sessionUser", updatedUser);
+        return "redirect:/";
+    }
+
+    @PostMapping("/user/delete")
+    public String delete() {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/login-form";
+        }
+        userService.회원탈퇴(sessionUser.getId());
+        session.invalidate();
+        return "redirect:/";
+    }
+
 }

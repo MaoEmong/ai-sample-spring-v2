@@ -1,5 +1,5 @@
 -- 유저 더미 데이터
-INSERT INTO user_tb (username, password, created_at) VALUES ('ssar', '1234', NOW());
+INSERT INTO user_tb (username, password, created_at) VALUES ('ssar', '$2a$10$atcH4S8t80TMTfelfQ.KBeP7xS4fveuwqOPyXPzE6L0eZOaOzDIg2', NOW());
 INSERT INTO user_tb (username, password, created_at) VALUES ('cos', '1234', NOW());
 
 -- 게시글 더미 데이터

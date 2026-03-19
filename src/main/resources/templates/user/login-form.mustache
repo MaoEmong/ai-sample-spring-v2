@@ -1,5 +1,41 @@
 {{> layout/header}}
 
-<h1>로그인 페이지</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h4 class="mb-0">로 그 인</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form action="/login" method="post">
+                        <!-- 아이디 입력 -->
+                        <div class="mb-4">
+                            <label for="username" class="form-label fw-bold">아이디</label>
+                            <input type="text" class="form-control" id="username" name="username" 
+                                   placeholder="아이디를 입력하세요" required>
+                        </div>
+
+                        <!-- 비밀번호 입력 -->
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-bold">비밀번호</label>
+                            <input type="password" class="form-control" id="password" name="password" 
+                                   placeholder="비밀번호를 입력하세요" required>
+                        </div>
+
+                        <!-- 로그인 버튼 -->
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-primary btn-lg">로그인</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3 bg-light">
+                    <span class="text-muted">아직 회원이 아니신가요?</span>
+                    <a href="/join-form" class="text-primary text-decoration-none fw-bold ms-1">회원가입</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {{> layout/footer}}

@@ -7,7 +7,7 @@
 ### 1.1 Backend
 
 - **Language**: Java 21
-- **Framework**: Spring Boot 3.3.4
+- **Framework**: Spring Boot 4.0.3
 - **Web**: Spring Web (Spring MVC)
 - **ORM / Database Access**: Spring Data JPA / Hibernate
 - **Database**: H2 Database (In-Memory, 개발/테스트용)
@@ -50,4 +50,4 @@
 - **댓글 (Reply)**: ID, 작성자 참조, 대상 게시글 참조, 본문, 작성일, 삭제 여부(is_deleted)
 - **관계**: User(1) : Board(N), User(1) : Reply(N), Board(1) : Reply(N)
 
-*(자세한 DB 스키마는 `erd.md` 참고)*
+_(자세한 DB 스키마는 `erd.md` 참고)_
